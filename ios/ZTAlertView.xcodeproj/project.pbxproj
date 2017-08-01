@@ -10,6 +10,7 @@
 		4C39534D1F2F253800B9FEA2 /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C39534C1F2F253800B9FEA2 /* UIColor+Tool.m */; };
 		CC21280A1F2F1A7500262541 /* ZTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2128091F2F1A7500262541 /* ZTAlertView.m */; };
 		CC21280B1F2F1A7500262541 /* ZTAlertView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CC2128081F2F1A7500262541 /* ZTAlertView.h */; };
+		CC7EFBD31F305ABD006D0C28 /* PLPAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7EFBD21F305ABD006D0C28 /* PLPAlertManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		CC2128051F2F1A7500262541 /* libZTAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZTAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2128081F2F1A7500262541 /* ZTAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZTAlertView.h; sourceTree = "<group>"; };
 		CC2128091F2F1A7500262541 /* ZTAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZTAlertView.m; sourceTree = "<group>"; };
+		CC7EFBD11F305ABD006D0C28 /* PLPAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLPAlertManager.h; sourceTree = "<group>"; };
+		CC7EFBD21F305ABD006D0C28 /* PLPAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLPAlertManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 		CC2128071F2F1A7500262541 /* ZTAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				CC7EFBD11F305ABD006D0C28 /* PLPAlertManager.h */,
+				CC7EFBD21F305ABD006D0C28 /* PLPAlertManager.m */,
 				CC2128081F2F1A7500262541 /* ZTAlertView.h */,
 				CC2128091F2F1A7500262541 /* ZTAlertView.m */,
 				4C39534B1F2F253800B9FEA2 /* UIColor+Tool.h */,
@@ -129,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC21280A1F2F1A7500262541 /* ZTAlertView.m in Sources */,
+				CC7EFBD31F305ABD006D0C28 /* PLPAlertManager.m in Sources */,
 				4C39534D1F2F253800B9FEA2 /* UIColor+Tool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
