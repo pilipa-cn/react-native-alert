@@ -12,12 +12,13 @@
 'use strict';
 
 import * as React from 'react'
-import {  Platform, NativeModules} from 'react-native'
+import {  Platform, NativeModules} from 'react-native';
+import AlertIOS from './AlertIOS';
 
 // var AlertIOS = require('AlertIOS');
 var DialogModuleAndroid = NativeModules.PLPDialogManagerAndroid;
 
-// import type { AlertType, AlertButtonStyle } from 'AlertIOS';
+import type { AlertType, AlertButtonStyle } from 'AlertIOS';
 
 type Buttons = Array<{
     text?: string,
@@ -82,13 +83,14 @@ class Alert {
         options?: Options,
         type?: AlertType,
     ): void {
+        console.log("Platform ....", Platform.OS);
         if (Platform.OS === 'ios') {
-            // if (typeof type !== 'undefined') {
-            //   console.warn('Alert.alert() with a 5th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.');
-            //   AlertIOS.alert(title, message, buttons, type);
-            //   return;
-            // }
-            // AlertIOS.alert(title, message, buttons);
+            if (typeof type !== 'undefined') {
+              console.warn('Alert.alert() with a 5th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.');
+              AlertIOS.alert(title, message, buttons, type);
+              return;
+            }
+            AlertIOS.alert(title, message, buttons);
         } else if (Platform.OS === 'android') {
             AlertAndroid.alert(title, message, buttons, options);
         }

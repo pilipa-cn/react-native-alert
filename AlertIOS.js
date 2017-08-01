@@ -243,7 +243,7 @@ class AlertIOS {
       });
     }
 
-    RCTAlertManager.alertWithArgs({
+    RCTAlertManager.showAlert({
       title: title || undefined,
       message: message || undefined,
       buttons,
