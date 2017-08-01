@@ -1,0 +1,24 @@
+{
+  "name": "react-native-alert",
+  "version": "1.0.0",
+  "description": "React Native Alert module which matchs pilipa UI style in native code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "rm -rf android/build Example/android/build Example/android/app/build node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:pilipa-cn/react-native-alert.git"
+  },
+  "keywords": [
+    "react-native",
+    "alert"
+  ],
+  "author": "pilipa-cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "github.com/pilipa-cn/react-native-alert/issues"
+  },
+  "homepage": "https://github.com/pilipa-cn/react-native-alert#readme"
+}

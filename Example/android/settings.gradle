@@ -1,0 +1,6 @@
+rootProject.name = 'Example'
+
+include ':app'
+
+include ':react-native-alert'
+project(':react-native-alert').projectDir = new File(settingsDir, '../../android')
