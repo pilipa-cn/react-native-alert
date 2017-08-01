@@ -11,22 +11,22 @@
  */
 'use strict';
 
-const { NativeModules } = require('react-native');
+import * as React from 'react'
+import {  Platform, NativeModules} from 'react-native'
 
-var AlertIOS = require('AlertIOS');
-var Platform = require('Platform');
+// var AlertIOS = require('AlertIOS');
 var DialogModuleAndroid = NativeModules.PLPDialogManagerAndroid;
 
-import type { AlertType, AlertButtonStyle } from 'AlertIOS';
+// import type { AlertType, AlertButtonStyle } from 'AlertIOS';
 
 type Buttons = Array<{
-  text?: string,
-  onPress?: ?Function,
-  style?: AlertButtonStyle,
+    text?: string,
+    onPress?: ?Function,
+    style?: AlertButtonStyle,
 }>;
 
 type Options = {
-  cancelable?: ?boolean,
+    cancelable?: ?boolean,
 };
 
 /**
@@ -75,24 +75,24 @@ type Options = {
  */
 class Alert {
 
-  static alert(
-    title: ?string,
-    message?: ?string,
-    buttons?: Buttons,
-    options?: Options,
-    type?: AlertType,
-  ): void {
-    if (Platform.OS === 'ios') {
-      if (typeof type !== 'undefined') {
-        console.warn('Alert.alert() with a 5th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.');
-        AlertIOS.alert(title, message, buttons, type);
-        return;
-      }
-      AlertIOS.alert(title, message, buttons);
-    } else if (Platform.OS === 'android') {
-      AlertAndroid.alert(title, message, buttons, options);
+    static alert(
+        title: ?string,
+        message?: ?string,
+        buttons?: Buttons,
+        options?: Options,
+        type?: AlertType,
+    ): void {
+        if (Platform.OS === 'ios') {
+            // if (typeof type !== 'undefined') {
+            //   console.warn('Alert.alert() with a 5th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.');
+            //   AlertIOS.alert(title, message, buttons, type);
+            //   return;
+            // }
+            // AlertIOS.alert(title, message, buttons);
+        } else if (Platform.OS === 'android') {
+            AlertAndroid.alert(title, message, buttons, options);
+        }
     }
-  }
 }
 
 /**
@@ -100,52 +100,52 @@ class Alert {
  */
 class AlertAndroid {
 
-  static alert(
-    title: ?string,
-    message?: ?string,
-    buttons?: Buttons,
-    options?: Options,
-  ): void {
-    var config = {
-      title: title || '',
-      message: message || '',
-    };
+    static alert(
+        title: ?string,
+        message?: ?string,
+        buttons?: Buttons,
+        options?: Options,
+    ): void {
+        var config = {
+            title: title || '',
+            message: message || '',
+        };
 
-    if (options) {
-      config = {...config, cancelable: options.cancelable};
-    }
-    // At most three buttons (neutral, negative, positive). Ignore rest.
-    // The text 'OK' should be probably localized. iOS Alert does that in native.
-    var validButtons: Buttons = buttons ? buttons.slice(0, 3) : [{text: 'OK'}];
-    var buttonPositive = validButtons.pop();
-    var buttonNegative = validButtons.pop();
-    var buttonNeutral = validButtons.pop();
-    if (buttonNeutral) {
-      config = {...config, buttonNeutral: buttonNeutral.text || '' };
-    }
-    if (buttonNegative) {
-      config = {...config, buttonNegative: buttonNegative.text || '' };
-    }
-    if (buttonPositive) {
-      config = {...config, buttonPositive: buttonPositive.text || '' };
-    }
-    DialogModuleAndroid.showAlert(
-      config,
-      (errorMessage) => console.warn(errorMessage),
-      (action, buttonKey) => {
-        if (action !== DialogModuleAndroid.buttonClicked) {
-          return;
+        if (options) {
+            config = {...config, cancelable: options.cancelable};
         }
-        if (buttonKey === DialogModuleAndroid.buttonNeutral) {
-          buttonNeutral.onPress && buttonNeutral.onPress();
-        } else if (buttonKey === DialogModuleAndroid.buttonNegative) {
-          buttonNegative.onPress && buttonNegative.onPress();
-        } else if (buttonKey === DialogModuleAndroid.buttonPositive) {
-          buttonPositive.onPress && buttonPositive.onPress();
+        // At most three buttons (neutral, negative, positive). Ignore rest.
+        // The text 'OK' should be probably localized. iOS Alert does that in native.
+        var validButtons: Buttons = buttons ? buttons.slice(0, 3) : [{text: 'OK'}];
+        var buttonPositive = validButtons.pop();
+        var buttonNegative = validButtons.pop();
+        var buttonNeutral = validButtons.pop();
+        if (buttonNeutral) {
+            config = {...config, buttonNeutral: buttonNeutral.text || '' };
         }
-      }
-    );
-  }
+        if (buttonNegative) {
+            config = {...config, buttonNegative: buttonNegative.text || '' };
+        }
+        if (buttonPositive) {
+            config = {...config, buttonPositive: buttonPositive.text || '' };
+        }
+        DialogModuleAndroid.showAlert(
+            config,
+            (errorMessage) => console.warn(errorMessage),
+            (action, buttonKey) => {
+                if (action !== DialogModuleAndroid.buttonClicked) {
+                    return;
+                }
+                if (buttonKey === DialogModuleAndroid.buttonNeutral) {
+                    buttonNeutral.onPress && buttonNeutral.onPress();
+                } else if (buttonKey === DialogModuleAndroid.buttonNegative) {
+                    buttonNegative.onPress && buttonNegative.onPress();
+                } else if (buttonKey === DialogModuleAndroid.buttonPositive) {
+                    buttonPositive.onPress && buttonPositive.onPress();
+                }
+            }
+        );
+    }
 }
 
 module.exports = Alert;

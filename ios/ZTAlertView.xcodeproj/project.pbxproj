@@ -1,0 +1,279 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C39534D1F2F253800B9FEA2 /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C39534C1F2F253800B9FEA2 /* UIColor+Tool.m */; };
+		CC21280A1F2F1A7500262541 /* ZTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2128091F2F1A7500262541 /* ZTAlertView.m */; };
+		CC21280B1F2F1A7500262541 /* ZTAlertView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CC2128081F2F1A7500262541 /* ZTAlertView.h */; };
+		E376EA951F3033A000ACBF29 /* PLPAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E376EA941F3033A000ACBF29 /* PLPAlertManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CC2128031F2F1A7500262541 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CC21280B1F2F1A7500262541 /* ZTAlertView.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4C39534B1F2F253800B9FEA2 /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tool.h"; sourceTree = "<group>"; };
+		4C39534C1F2F253800B9FEA2 /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
+		CC2128051F2F1A7500262541 /* libZTAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZTAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC2128081F2F1A7500262541 /* ZTAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZTAlertView.h; sourceTree = "<group>"; };
+		CC2128091F2F1A7500262541 /* ZTAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZTAlertView.m; sourceTree = "<group>"; };
+		E376EA931F3033A000ACBF29 /* PLPAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLPAlertManager.h; sourceTree = "<group>"; };
+		E376EA941F3033A000ACBF29 /* PLPAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLPAlertManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC2128021F2F1A7500262541 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC2127FC1F2F1A7500262541 = {
+			isa = PBXGroup;
+			children = (
+				CC2128071F2F1A7500262541 /* ZTAlertView */,
+				CC2128061F2F1A7500262541 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC2128061F2F1A7500262541 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC2128051F2F1A7500262541 /* libZTAlertView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC2128071F2F1A7500262541 /* ZTAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				E376EA931F3033A000ACBF29 /* PLPAlertManager.h */,
+				E376EA941F3033A000ACBF29 /* PLPAlertManager.m */,
+				CC2128081F2F1A7500262541 /* ZTAlertView.h */,
+				CC2128091F2F1A7500262541 /* ZTAlertView.m */,
+				4C39534B1F2F253800B9FEA2 /* UIColor+Tool.h */,
+				4C39534C1F2F253800B9FEA2 /* UIColor+Tool.m */,
+			);
+			path = ZTAlertView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC2128041F2F1A7500262541 /* ZTAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC21280E1F2F1A7500262541 /* Build configuration list for PBXNativeTarget "ZTAlertView" */;
+			buildPhases = (
+				CC2128011F2F1A7500262541 /* Sources */,
+				CC2128021F2F1A7500262541 /* Frameworks */,
+				CC2128031F2F1A7500262541 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZTAlertView;
+			productName = ZTAlertView;
+			productReference = CC2128051F2F1A7500262541 /* libZTAlertView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC2127FD1F2F1A7500262541 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "jinglan1212@icloud.com";
+				TargetAttributes = {
+					CC2128041F2F1A7500262541 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CC2128001F2F1A7500262541 /* Build configuration list for PBXProject "ZTAlertView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CC2127FC1F2F1A7500262541;
+			productRefGroup = CC2128061F2F1A7500262541 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC2128041F2F1A7500262541 /* ZTAlertView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC2128011F2F1A7500262541 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC21280A1F2F1A7500262541 /* ZTAlertView.m in Sources */,
+				E376EA951F3033A000ACBF29 /* PLPAlertManager.m in Sources */,
+				4C39534D1F2F253800B9FEA2 /* UIColor+Tool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CC21280C1F2F1A7500262541 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CC21280D1F2F1A7500262541 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC21280F1F2F1A7500262541 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../react-native/React";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CC2128101F2F1A7500262541 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../react-native/React";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC2128001F2F1A7500262541 /* Build configuration list for PBXProject "ZTAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC21280C1F2F1A7500262541 /* Debug */,
+				CC21280D1F2F1A7500262541 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC21280E1F2F1A7500262541 /* Build configuration list for PBXNativeTarget "ZTAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC21280F1F2F1A7500262541 /* Debug */,
+				CC2128101F2F1A7500262541 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC2127FD1F2F1A7500262541 /* Project object */;
+}

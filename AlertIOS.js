@@ -12,7 +12,9 @@
  */
 'use strict';
 
-var RCTAlertManager = require('NativeModules').PLPAlertManager;
+import {  Platform, NativeModules} from 'react-native'
+
+const RCTAlertManager = NativeModules.ZTAlertView;
 
 /**
  * An Alert button type
