@@ -73,6 +73,7 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
   NSString *cancelButtonKey = [RCTConvert NSString:args[@"cancelButtonKey"]];
   NSString *destructiveButtonKey = [RCTConvert NSString:args[@"destructiveButtonKey"]];
   UIKeyboardType keyboardType = [RCTConvert UIKeyboardType:args[@"keyboardType"]];
+  NSString *buttonTextColor = [RCTConvert NSString:args[@"color"]];
 
   if (!title && !message) {
     RCTLogError(@"Must specify either an alert title, or message, or both");
@@ -151,28 +152,38 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
       buttonStyle = UIAlertActionStyleDestructive;
     }
     __weak UIAlertController *weakAlertController = alertController;
-    [alertController addAction:[UIAlertAction actionWithTitle:buttonTitle
-                                                        style:buttonStyle
-                                                      handler:^(__unused UIAlertAction *action) {
-      switch (type) {
-        case RCTAlertViewStylePlainTextInput:
-        case RCTAlertViewStyleSecureTextInput:
-          callback(@[buttonKey, [weakAlertController.textFields.firstObject text]]);
-          break;
-        case RCTAlertViewStyleLoginAndPasswordInput: {
-          NSDictionary<NSString *, NSString *> *loginCredentials = @{
-            @"login": [weakAlertController.textFields.firstObject text],
-            @"password": [weakAlertController.textFields.lastObject text]
-          };
-          callback(@[buttonKey, loginCredentials]);
-          break;
-        }
-        case RCTAlertViewStyleDefault:
-          callback(@[buttonKey]);
-          break;
+      
+      UIAlertAction *alertAction = [UIAlertAction actionWithTitle:buttonTitle
+                                                            style:buttonStyle
+                                                          handler:^(__unused UIAlertAction *action) {
+                                                              switch (type) {
+                                                                  case RCTAlertViewStylePlainTextInput:
+                                                                  case RCTAlertViewStyleSecureTextInput:
+                                                                      callback(@[buttonKey, [weakAlertController.textFields.firstObject text]]);
+                                                                      break;
+                                                                  case RCTAlertViewStyleLoginAndPasswordInput: {
+                                                                      NSDictionary<NSString *, NSString *> *loginCredentials = @{
+                                                                                                                                 @"login": [weakAlertController.textFields.firstObject text],
+                                                                                                                                 @"password": [weakAlertController.textFields.lastObject text]
+                                                                                                                                 };
+                                                                      callback(@[buttonKey, loginCredentials]);
+                                                                      break;
+                                                                  }
+                                                                  case RCTAlertViewStyleDefault:
+                                                                      callback(@[buttonKey]);
+                                                                      break;
+                                                              }
+                                                          }];
+      
+      if (dic[@"buttonTextColor"]) {
+          [action setValue:[UIColor colorWithHexString:dic[@"color"]] forKey:@"titleTextColor"];
       }
-    }]];
-  }
+      
+      [alertController addAction:alertAction];
+      
+      
+      
+      }
 
   if (!_alertControllers) {
     _alertControllers = [NSHashTable weakObjectsHashTable];
