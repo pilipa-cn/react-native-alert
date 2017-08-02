@@ -146,6 +146,8 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
     NSString *buttonTitle = [RCTConvert NSString:button[buttonKey]];
 
     //在这里取颜色值
+    NSString *buttonTextColor = button.allKeys[3];
+    UIColor *color = [UIColor colorWithHexString:[RCTConvert NSString:button[buttonTextColor]];
 
     UIAlertActionStyle buttonStyle = UIAlertActionStyleDefault;
     if ([buttonKey isEqualToString:cancelButtonKey]) {
@@ -176,6 +178,8 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
                                                                       break;
                                                               }
                                                           }];
+
+      [action setValue:color forKey:@"titleTextColor"];
 
       [alertController addAction:alertAction];
       
