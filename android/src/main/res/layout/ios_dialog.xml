@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 仿iOS对话框 -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+    <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="270dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:minWidth="270dp"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="提示"
+                android:textColor="#323232"
+                android:textSize="17dp"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="33dp"
+                android:gravity="center"
+                android:minHeight="40dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/message"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="退出"
+                    android:textColor="#323232"
+                    android:textSize="17dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#e6e6e8"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:orientation="horizontal">
+
+            <Button
+                    android:id="@+id/cancel_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ios_left_btn_select"
+                    android:text="@string/ios_cancel"
+                    android:textColor="#969696"
+                    android:textSize="17dp"/>
+
+            <LinearLayout
+                    android:id="@+id/single_line"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e6e6e8"
+                    android:orientation="horizontal"/>
+
+            <Button
+                    android:id="@+id/neutral_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ios_left_btn_select"
+                    android:text="隐藏"
+                    android:textColor="#ef0c35"
+                    android:textSize="17dp"/>
+
+            <LinearLayout
+                    android:id="@+id/second_line"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e6e6e8"
+                    android:orientation="horizontal"/>
+
+            <Button
+                    android:id="@+id/confirm_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ios_right_btn_select"
+                    android:text="@string/ios_confirm"
+                    android:textColor="#ef0c35"
+                    android:textSize="17dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
