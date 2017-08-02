@@ -76,6 +76,10 @@ type ButtonsArray = Array<{
    * Button style
    */
   style?: AlertButtonStyle,
+    /**
+     * Button textColor
+     */
+    color?: string,
 }>;
 
 /**

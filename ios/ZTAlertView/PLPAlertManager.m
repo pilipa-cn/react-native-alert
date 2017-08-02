@@ -144,6 +144,11 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
     }
     NSString *buttonKey = button.allKeys.firstObject;
     NSString *buttonTitle = [RCTConvert NSString:button[buttonKey]];
+
+    //在这里取颜色值
+    NSString *buttonTextColor = button.allKeys[3];
+    UIColor *color = [UIColor colorWithHexString:[RCTConvert NSString:button[buttonTextColor]];
+
     UIAlertActionStyle buttonStyle = UIAlertActionStyleDefault;
     if ([buttonKey isEqualToString:cancelButtonKey]) {
       buttonStyle = UIAlertActionStyleCancel;
@@ -151,28 +156,36 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
       buttonStyle = UIAlertActionStyleDestructive;
     }
     __weak UIAlertController *weakAlertController = alertController;
-    [alertController addAction:[UIAlertAction actionWithTitle:buttonTitle
-                                                        style:buttonStyle
-                                                      handler:^(__unused UIAlertAction *action) {
-      switch (type) {
-        case RCTAlertViewStylePlainTextInput:
-        case RCTAlertViewStyleSecureTextInput:
-          callback(@[buttonKey, [weakAlertController.textFields.firstObject text]]);
-          break;
-        case RCTAlertViewStyleLoginAndPasswordInput: {
-          NSDictionary<NSString *, NSString *> *loginCredentials = @{
-            @"login": [weakAlertController.textFields.firstObject text],
-            @"password": [weakAlertController.textFields.lastObject text]
-          };
-          callback(@[buttonKey, loginCredentials]);
-          break;
-        }
-        case RCTAlertViewStyleDefault:
-          callback(@[buttonKey]);
-          break;
+      
+      UIAlertAction *alertAction = [UIAlertAction actionWithTitle:buttonTitle
+                                                            style:buttonStyle
+                                                          handler:^(__unused UIAlertAction *action) {
+                                                              switch (type) {
+                                                                  case RCTAlertViewStylePlainTextInput:
+                                                                  case RCTAlertViewStyleSecureTextInput:
+                                                                      callback(@[buttonKey, [weakAlertController.textFields.firstObject text]]);
+                                                                      break;
+                                                                  case RCTAlertViewStyleLoginAndPasswordInput: {
+                                                                      NSDictionary<NSString *, NSString *> *loginCredentials = @{
+                                                                                                                                 @"login": [weakAlertController.textFields.firstObject text],
+                                                                                                                                 @"password": [weakAlertController.textFields.lastObject text]
+                                                                                                                                 };
+                                                                      callback(@[buttonKey, loginCredentials]);
+                                                                      break;
+                                                                  }
+                                                                  case RCTAlertViewStyleDefault:
+                                                                      callback(@[buttonKey]);
+                                                                      break;
+                                                              }
+                                                          }];
+
+      [action setValue:color forKey:@"titleTextColor"];
+
+      [alertController addAction:alertAction];
+      
+      
+      
       }
-    }]];
-  }
 
   if (!_alertControllers) {
     _alertControllers = [NSHashTable weakObjectsHashTable];
