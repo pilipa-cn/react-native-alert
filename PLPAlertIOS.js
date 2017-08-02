@@ -111,7 +111,7 @@ export type ButtonsArray = Array<{
  * cross-platform support if you don't need to create iOS-only prompts.
  *
  */
-class AlertIOS {
+class PLPAlertIOS {
     /**
      * Create and display a popup alert.
      * @static
@@ -271,4 +271,4 @@ class AlertIOS {
     }
 }
 
-module.exports = AlertIOS;
+module.exports = PLPAlertIOS;

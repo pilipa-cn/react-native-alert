@@ -13,12 +13,12 @@
 
 import * as React from 'react'
 import {  Platform, NativeModules} from 'react-native';
-import AlertIOS from './AlertIOS';
+import AlertIOS from './PLPAlertIOS';
 
 // var AlertIOS = require('AlertIOS');
 var DialogModuleAndroid = NativeModules.PLPDialogManagerAndroid;
 
-import type { AlertType, AlertButtonStyle } from 'AlertIOS';
+import type { AlertType, AlertButtonStyle } from 'PLPAlertIOS';
 
 type Buttons = Array<{
     text?: string,
