@@ -73,7 +73,6 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
   NSString *cancelButtonKey = [RCTConvert NSString:args[@"cancelButtonKey"]];
   NSString *destructiveButtonKey = [RCTConvert NSString:args[@"destructiveButtonKey"]];
   UIKeyboardType keyboardType = [RCTConvert UIKeyboardType:args[@"keyboardType"]];
-  NSString *buttonTextColor = [RCTConvert NSString:args[@"color"]];
 
   if (!title && !message) {
     RCTLogError(@"Must specify either an alert title, or message, or both");
@@ -145,6 +144,9 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
     }
     NSString *buttonKey = button.allKeys.firstObject;
     NSString *buttonTitle = [RCTConvert NSString:button[buttonKey]];
+
+    //在这里取颜色值
+
     UIAlertActionStyle buttonStyle = UIAlertActionStyleDefault;
     if ([buttonKey isEqualToString:cancelButtonKey]) {
       buttonStyle = UIAlertActionStyleCancel;
@@ -174,11 +176,7 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
                                                                       break;
                                                               }
                                                           }];
-      
-      if (dic[@"buttonTextColor"]) {
-          [action setValue:[UIColor colorWithHexString:dic[@"color"]] forKey:@"titleTextColor"];
-      }
-      
+
       [alertController addAction:alertAction];
       
       
