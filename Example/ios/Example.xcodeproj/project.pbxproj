@@ -22,7 +22,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		CC7EFBCD1F304B3D006D0C28 /* libZTAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E376EACC1F30347C00ACBF29 /* libZTAlertView.a */; };
+		CC304B8B1F31D6650061CB00 /* libZTAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC304B7D1F31D5860061CB00 /* libZTAlertView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +159,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		CC304B7C1F31D5860061CB00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC304B781F31D5860061CB00 /* ZTAlertView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CC2128051F2F1A7500262541;
+			remoteInfo = ZTAlertView;
+		};
 		E376EABB1F30342400ACBF29 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -201,13 +208,6 @@
 			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
 			remoteInfo = "jschelpers-tvOS";
 		};
-		E376EACB1F30347C00ACBF29 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E376EAC71F30347C00ACBF29 /* ZTAlertView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CC2128051F2F1A7500262541;
-			remoteInfo = ZTAlertView;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -229,7 +229,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		E376EAC71F30347C00ACBF29 /* ZTAlertView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZTAlertView.xcodeproj; path = ../../ios/ZTAlertView.xcodeproj; sourceTree = "<group>"; };
+		CC304B781F31D5860061CB00 /* ZTAlertView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZTAlertView.xcodeproj; path = ../../ios/ZTAlertView.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC7EFBCD1F304B3D006D0C28 /* libZTAlertView.a in Frameworks */,
+				CC304B8B1F31D6650061CB00 /* libZTAlertView.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				019E52E21DEE2CD7000A5FCC /* libRCTAnimation.a in Frameworks */,
@@ -364,7 +364,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				E376EAC71F30347C00ACBF29 /* ZTAlertView.xcodeproj */,
+				CC304B781F31D5860061CB00 /* ZTAlertView.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				019E52B91DEE2CC7000A5FCC /* RCTAnimation.xcodeproj */,
@@ -408,10 +408,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E376EAC81F30347C00ACBF29 /* Products */ = {
+		CC304B791F31D5860061CB00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E376EACC1F30347C00ACBF29 /* libZTAlertView.a */,
+				CC304B7D1F31D5860061CB00 /* libZTAlertView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -508,8 +508,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = E376EAC81F30347C00ACBF29 /* Products */;
-					ProjectRef = E376EAC71F30347C00ACBF29 /* ZTAlertView.xcodeproj */;
+					ProductGroup = CC304B791F31D5860061CB00 /* Products */;
+					ProjectRef = CC304B781F31D5860061CB00 /* ZTAlertView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -653,6 +653,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		CC304B7D1F31D5860061CB00 /* libZTAlertView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libZTAlertView.a;
+			remoteRef = CC304B7C1F31D5860061CB00 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E376EABC1F30342400ACBF29 /* libyoga.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -693,13 +700,6 @@
 			fileType = archive.ar;
 			path = libjschelpers.a;
 			remoteRef = E376EAC51F30342400ACBF29 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E376EACC1F30347C00ACBF29 /* libZTAlertView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libZTAlertView.a;
-			remoteRef = E376EACB1F30347C00ACBF29 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
