@@ -2,6 +2,16 @@
 React Native Alert module which matchs pilipa UI style in native code
 The api is same as React Native offical Alert API.
 
+Usage:
+
+```sh
+npm install --save pilipa-cn/react-native-alert
+```
+
+```javascript
+import Alert from "react-native-alert";
+```
+
 **Change made to iOS version:**
 
 by default, all buttons text color is `#EF0C35`.
