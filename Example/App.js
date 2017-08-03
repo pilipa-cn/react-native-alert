@@ -45,6 +45,10 @@ export default class App extends React.Component {
         ]);
     }
 
+    showMsgAlert() {
+        Alert.alert('标题', '确定退出\n退出后将重新登录');
+    }
+
   render() {
     return (
       <View style={styles.container}>
@@ -57,6 +61,12 @@ export default class App extends React.Component {
           <TouchableOpacity onPress={this.showSingleAlert.bind(this)}>
               <View style={[styles.avatar, styles.avatarContainer]}>
                   <Text>显示单按钮提示框</Text>
+              </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.showMsgAlert.bind(this)}>
+              <View style={[styles.avatar, styles.avatarContainer]}>
+                  <Text>显示文本无按钮定义提示框</Text>
               </View>
           </TouchableOpacity>
       </View>

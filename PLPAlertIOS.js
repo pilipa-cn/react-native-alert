@@ -243,8 +243,6 @@ class PLPAlertIOS {
                 if (btn.text || index < (callbackOrButtons || []).length - 1) {
                     let btnDef = {};
                     let sec = {};
-
-
                     sec[0] = btn.text || '';
                     sec[1] = btn.color || '';
 
@@ -253,6 +251,14 @@ class PLPAlertIOS {
                     buttons.push(btnDef);
                 }
             });
+        } if(callbackOrButtons === undefined) {// 没有按钮定义
+            let btnDef = {};
+            let sec = {};
+            sec[0] = '确定';
+            sec[1] = '#EF0C35';
+
+            btnDef[0] = sec;
+            buttons.push(btnDef);
         }
 
         RCTAlertManager.alertWithArgs({

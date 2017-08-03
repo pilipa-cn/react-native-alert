@@ -10,6 +10,7 @@ npm install --save pilipa-cn/react-native-alert
 
 ```javascript
 import Alert from "react-native-alert";
+Alert.alert('标题', '确定退出');
 ```
 
 **Change made to iOS version:**
