@@ -104,6 +104,7 @@ public class AlertFragment extends DialogFragment implements DialogInterface.OnC
                   public void onClick(View v) {
                     fragment.onClick(dialog,
                             DialogInterface.BUTTON_NEUTRAL);
+                    dialog.dismiss();
                   }
                 });
       } else {
@@ -132,6 +133,7 @@ public class AlertFragment extends DialogFragment implements DialogInterface.OnC
                   public void onClick(View v) {
                     fragment.onClick(dialog,
                             DialogInterface.BUTTON_POSITIVE);
+                    dialog.dismiss();
                   }
                 });
       } else {
@@ -161,6 +163,7 @@ public class AlertFragment extends DialogFragment implements DialogInterface.OnC
                   public void onClick(View v) {
                     fragment.onClick(dialog,
                             DialogInterface.BUTTON_NEGATIVE);
+                    dialog.dismiss();
                   }
                 });
       } else {
@@ -185,7 +188,7 @@ public class AlertFragment extends DialogFragment implements DialogInterface.OnC
       ((TextView) layout.findViewById(R.id.message)).setText(arguments.getString(ARG_MESSAGE));
     }
     dialog.setContentView(layout);
-          dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+    dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
 
     return dialog;
 
