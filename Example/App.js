@@ -14,15 +14,33 @@ import Alert from "react-native-alert";
 export default class App extends React.Component {
 
     showAlert() {
-        Alert.alert('', '确定退出', [
+        Alert.alert('标题', '确定退出\n退出后将重新登录', [
             {
                 text: "取消",
-                onPress: ()=>{}
+                onPress: ()=>{
+                    console.log('you clicked cancel');
+                },
+                // color: "#969696"
+                style: 'cancel'
             }
             ,
             {
                 text: "确定",
-                onPress: ()=>{}
+                onPress: ()=>{
+                    console.log('you clicked ok');
+                },
+                // color: "#EF0C35"
+            }
+        ]);
+    }
+
+    showSingleAlert() {
+        Alert.alert('标题', '确定退出\n退出后将重新登录', [
+            {
+                text: "确定",
+                onPress: ()=>{
+                    console.log('you clicked ok');
+                }
             }
         ]);
     }
@@ -32,14 +50,18 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <TouchableOpacity onPress={this.showAlert.bind(this)}>
           <View style={[styles.avatar, styles.avatarContainer]}>
-            <Text>显示提示框</Text>
+              <Text>显示双按钮提示框</Text>
           </View>
         </TouchableOpacity>
 
+          <TouchableOpacity onPress={this.showSingleAlert.bind(this)}>
+              <View style={[styles.avatar, styles.avatarContainer]}>
+                  <Text>显示单按钮提示框</Text>
+              </View>
+          </TouchableOpacity>
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
