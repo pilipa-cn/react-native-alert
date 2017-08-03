@@ -19,7 +19,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="36dp"
                 android:gravity="center"
                 android:text="提示"
                 android:textColor="#323232"
@@ -28,7 +28,6 @@
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="33dp"
                 android:gravity="center"
                 android:minHeight="40dp"
                 android:orientation="vertical">
