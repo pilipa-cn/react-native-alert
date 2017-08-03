@@ -114,7 +114,7 @@ class AlertAndroid {
 };
 
     if (options) {
-        config = {...config, cancelable: options.cancelable | false};
+        config = {...config, cancelable: options.cancelable};
     }
     // At most three buttons (neutral, negative, positive). Ignore rest.
     // The text 'OK' should be probably localized. iOS Alert does that in native.
