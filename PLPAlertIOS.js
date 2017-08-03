@@ -21,41 +21,41 @@ const RCTAlertManager = NativeModules.PLPAlertManager;
  * An Alert button type
  */
 export type AlertType = $Enum<{
-    /**
-     * Default alert with no inputs
-     */
+        /**
+         * Default alert with no inputs
+         */
         'default': string,
-    /**
-     * Plain text input alert
-     */
+        /**
+         * Plain text input alert
+         */
         'plain-text': string,
-    /**
-     * Secure text input alert
-     */
+        /**
+         * Secure text input alert
+         */
         'secure-text': string,
-    /**
-     * Login and password alert
-     */
+        /**
+         * Login and password alert
+         */
         'login-password': string,
-}>;
+    }>;
 
 /**
  * An Alert button style
  */
 export type AlertButtonStyle = $Enum<{
-    /**
-     * Default button style
-     */
+        /**
+         * Default button style
+         */
         'default': string,
-    /**
-     * Cancel button style
-     */
+        /**
+         * Cancel button style
+         */
         'cancel': string,
-    /**
-     * Destructive button style
-     */
+        /**
+         * Destructive button style
+         */
         'destructive': string,
-}>;
+    }>;
 
 /**
  * Array or buttons
@@ -65,23 +65,23 @@ export type AlertButtonStyle = $Enum<{
  * @property {AlertButtonStyle=} style Button style
  */
 export type ButtonsArray = Array<{
-    /**
-     * Button label
-     */
+        /**
+         * Button label
+         */
         text?: string,
-    /**
-     * Callback function when button pressed
-     */
+        /**
+         * Callback function when button pressed
+         */
         onPress?: ?Function,
-    /**
-     * Button style
-     */
+        /**
+         * Button style
+         */
         style?: AlertButtonStyle,
-    /**
-     * Button textColor
-     */
+        /**
+         * Button textColor
+         */
         color?: string,
-}>;
+    }>;
 
 /**
  * @description
@@ -142,133 +142,133 @@ class PLPAlertIOS {
     static alert(
         title: ?string,
         message?: ?string,
-        callbackOrButtons?: ?(() => void) | ButtonsArray,
-        type?: AlertType,
-    ): void {
-        if (typeof type !== 'undefined') {
-            console.warn('AlertIOS.alert() with a 4th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.');
-            this.prompt(title, message, callbackOrButtons, type);
-            return;
-        }
-        this.prompt(title, message, callbackOrButtons, 'default');
+    callbackOrButtons?: ?(() => void) | ButtonsArray,
+    type?: AlertType,
+): void {
+    if (typeof type !== 'undefined') {
+    console.warn('AlertIOS.alert() with a 4th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.');
+    this.prompt(title, message, callbackOrButtons, type);
+    return;
+}
+this.prompt(title, message, callbackOrButtons, 'default');
+}
+
+/**
+ * Create and display a prompt to enter some text.
+ * @static
+ * @method prompt
+ * @param title The dialog's title.
+ * @param message An optional message that appears above the text
+ *    input.
+ * @param callbackOrButtons This optional argument should
+ *    be either a single-argument function or an array of buttons. If passed
+ *    a function, it will be called with the prompt's value when the user
+ *    taps 'OK'.
+ *
+ *    If passed an array of button configurations, each button should include
+ *    a `text` key, as well as optional `onPress` and `style` keys (see
+ *    example). `style` should be one of 'default', 'cancel' or 'destructive'.
+ * @param type This configures the text input. One of 'plain-text',
+ *    'secure-text' or 'login-password'.
+ * @param defaultValue The default text in text input.
+ * @param keyboardType The keyboard type of first text field(if exists).
+ *    One of 'default', 'email-address', 'numeric', 'phone-pad',
+ *    'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad',
+ *    'name-phone-pad', 'decimal-pad', 'twitter' or 'web-search'.
+ *
+ * @example <caption>Example with custom buttons</caption>
+ *
+ * AlertIOS.prompt(
+ *   'Enter password',
+ *   'Enter your password to claim your $1.5B in lottery winnings',
+ *   [
+ *     {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+ *     {text: 'OK', onPress: password => console.log('OK Pressed, password: ' + password)},
+ *   ],
+ *   'secure-text'
+ * );
+ *
+ * @example <caption>Example with the default button and a custom callback</caption>
+ *
+ * AlertIOS.prompt(
+ *   'Update username',
+ *   null,
+ *   text => console.log("Your username is "+text),
+ *   null,
+ *   'default'
+ * );
+ */
+static prompt(
+    title: ?string,
+    message?: ?string,
+    callbackOrButtons?: ?((text: string) => void) | ButtonsArray,
+    type?: ?AlertType = 'plain-text',
+    defaultValue?: string,
+    keyboardType?: string
+): void {
+    if (typeof type === 'function') {
+    console.warn(
+        'You passed a callback function as the "type" argument to AlertIOS.prompt(). React Native is ' +
+        'assuming  you want to use the deprecated AlertIOS.prompt(title, defaultValue, buttons, callback) ' +
+        'signature. The current signature is AlertIOS.prompt(title, message, callbackOrButtons, type, defaultValue, ' +
+        'keyboardType) and the old syntax will be removed in a future version.');
+
+    var callback = type;
+    var defaultValue = message;
+    RCTAlertManager.alertWithArgs({
+        title: title || undefined,
+        type: 'plain-text',
+        defaultValue,
+    }, (id, value) => {
+        callback(value);
+});
+    return;
+}
+
+var callbacks = [];
+var buttons = [];
+var cancelButtonKey;
+var destructiveButtonKey;
+if (typeof callbackOrButtons === 'function') {
+    callbacks = [callbackOrButtons];
+}
+else if (callbackOrButtons instanceof Array) {
+    callbackOrButtons.forEach((btn, index) => {
+        callbacks[index] = btn.onPress;
+    if (btn.style === 'cancel') {
+        cancelButtonKey = String(index);
+    } else if (btn.style === 'destructive') {
+        destructiveButtonKey = String(index);
     }
-
-    /**
-     * Create and display a prompt to enter some text.
-     * @static
-     * @method prompt
-     * @param title The dialog's title.
-     * @param message An optional message that appears above the text
-     *    input.
-     * @param callbackOrButtons This optional argument should
-     *    be either a single-argument function or an array of buttons. If passed
-     *    a function, it will be called with the prompt's value when the user
-     *    taps 'OK'.
-     *
-     *    If passed an array of button configurations, each button should include
-     *    a `text` key, as well as optional `onPress` and `style` keys (see
-     *    example). `style` should be one of 'default', 'cancel' or 'destructive'.
-     * @param type This configures the text input. One of 'plain-text',
-     *    'secure-text' or 'login-password'.
-     * @param defaultValue The default text in text input.
-     * @param keyboardType The keyboard type of first text field(if exists).
-     *    One of 'default', 'email-address', 'numeric', 'phone-pad',
-     *    'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad',
-     *    'name-phone-pad', 'decimal-pad', 'twitter' or 'web-search'.
-     *
-     * @example <caption>Example with custom buttons</caption>
-     *
-     * AlertIOS.prompt(
-     *   'Enter password',
-     *   'Enter your password to claim your $1.5B in lottery winnings',
-     *   [
-     *     {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-     *     {text: 'OK', onPress: password => console.log('OK Pressed, password: ' + password)},
-     *   ],
-     *   'secure-text'
-     * );
-     *
-     * @example <caption>Example with the default button and a custom callback</caption>
-     *
-     * AlertIOS.prompt(
-     *   'Update username',
-     *   null,
-     *   text => console.log("Your username is "+text),
-     *   null,
-     *   'default'
-     * );
-     */
-    static prompt(
-        title: ?string,
-        message?: ?string,
-        callbackOrButtons?: ?((text: string) => void) | ButtonsArray,
-        type?: ?AlertType = 'plain-text',
-        defaultValue?: string,
-        keyboardType?: string
-    ): void {
-        if (typeof type === 'function') {
-            console.warn(
-                'You passed a callback function as the "type" argument to AlertIOS.prompt(). React Native is ' +
-                'assuming  you want to use the deprecated AlertIOS.prompt(title, defaultValue, buttons, callback) ' +
-                'signature. The current signature is AlertIOS.prompt(title, message, callbackOrButtons, type, defaultValue, ' +
-                'keyboardType) and the old syntax will be removed in a future version.');
-
-            var callback = type;
-            var defaultValue = message;
-            RCTAlertManager.alertWithArgs({
-                title: title || undefined,
-                type: 'plain-text',
-                defaultValue,
-            }, (id, value) => {
-                callback(value);
-            });
-            return;
-        }
-
-        var callbacks = [];
-        var buttons = [];
-        var cancelButtonKey;
-        var destructiveButtonKey;
-        if (typeof callbackOrButtons === 'function') {
-            callbacks = [callbackOrButtons];
-        }
-        else if (callbackOrButtons instanceof Array) {
-            callbackOrButtons.forEach((btn, index) => {
-                callbacks[index] = btn.onPress;
-                if (btn.style === 'cancel') {
-                    cancelButtonKey = String(index);
-                } else if (btn.style === 'destructive') {
-                    destructiveButtonKey = String(index);
-                }
-                if (btn.text || index < (callbackOrButtons || []).length - 1) {
-                    var btnDef = {};
-                    var sec = {};
+    if (btn.text || index < (callbackOrButtons || []).length - 1) {
+        var btnDef = {};
+        var sec = {};
 
 
-                    sec[0] = btn.text || '';
-                    sec[1] = btn.color || '';
+        sec[0] = btn.text || '';
+        sec[1] = btn.color || '';
 
-                    btnDef[index] = sec;
+        btnDef[index] = sec;
 
-                    buttons.push(btnDef);
-                }
-            });
-        }
-
-        RCTAlertManager.alertWithArgs({
-            title: title || undefined,
-            message: message || undefined,
-            buttons,
-            type: type || undefined,
-            defaultValue,
-            cancelButtonKey,
-            destructiveButtonKey,
-            keyboardType,
-        }, (id, value) => {
-            var cb = callbacks[id];
-            cb && cb(value);
-        });
+        buttons.push(btnDef);
     }
+});
+}
+
+RCTAlertManager.alertWithArgs({
+    title: title || undefined,
+    message: message || undefined,
+    buttons,
+    type: type || undefined,
+    defaultValue,
+    cancelButtonKey,
+    destructiveButtonKey,
+    keyboardType,
+}, (id, value) => {
+    var cb = callbacks[id];
+cb && cb(value);
+});
+}
 }
 
 module.exports = PLPAlertIOS;
