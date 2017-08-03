@@ -108,20 +108,20 @@ class AlertAndroid {
     buttons?: Buttons,
     options?: Options,
 ): void {
-    var config = {
+        let config = {
     title: title || '',
     message: message || '',
 };
 
     if (options) {
-        config = {...config, cancelable: options.cancelable};
+        config = {...config, cancelable: options.cancelable | false};
     }
     // At most three buttons (neutral, negative, positive). Ignore rest.
     // The text 'OK' should be probably localized. iOS Alert does that in native.
-    var validButtons: Buttons = buttons ? buttons.slice(0, 3) : [{text: 'OK'}];
-    var buttonPositive = validButtons.pop();
-    var buttonNegative = validButtons.pop();
-    var buttonNeutral = validButtons.pop();
+    let validButtons: Buttons = buttons ? buttons.slice(0, 3) : [{text: 'OK'}];
+        let buttonPositive = validButtons.pop();
+        let buttonNegative = validButtons.pop();
+        let buttonNeutral = validButtons.pop();
     if (buttonNeutral) {
         config = {...config, buttonNeutral: buttonNeutral.text || '' };
     }

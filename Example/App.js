@@ -20,7 +20,7 @@ export default class App extends React.Component {
                 onPress: ()=>{
                     console.log('you clicked cancel');
                 },
-                // color: "#969696"
+                color: "#969696",
                 style: 'cancel'
             }
             ,
