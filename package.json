@@ -1,6 +1,6 @@
 {
   "name": "react-native-alert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native Alert module which matchs pilipa UI style in native code",
   "main": "index.js",
   "scripts": {
